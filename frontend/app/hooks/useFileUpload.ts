@@ -17,10 +17,10 @@ export function useFileUpload() {
     setError(null);
     setProgress(0);
 
-    // Simulate progress for better UX (less frequent updates for better performance)
+    // Simulate progress for better UX
     const progressInterval = setInterval(() => {
-      setProgress(prev => Math.min(prev + 15, 90));
-    }, 500);  // Reduced frequency: 6 updates instead of 9
+      setProgress(prev => Math.min(prev + 10, 90));
+    }, 200);
 
     try {
       const result = await uploadWorkbook(file);

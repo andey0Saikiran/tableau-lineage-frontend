@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useCallback, memo } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 
 interface ToastProps {
   message: string;
@@ -8,7 +8,7 @@ interface ToastProps {
   onClose: () => void;
 }
 
-export const Toast = memo(function Toast({ message, type, onClose }: ToastProps) {
+export function Toast({ message, type, onClose }: ToastProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -53,7 +53,7 @@ export const Toast = memo(function Toast({ message, type, onClose }: ToastProps)
       </div>
     </div>
   );
-});
+}
 
 export function useToast() {
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' | 'info' } | null>(null);

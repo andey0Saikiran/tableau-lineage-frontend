@@ -9,7 +9,6 @@ interface VisualizerFrameProps {
 export function VisualizerFrame({ html }: VisualizerFrameProps) {
   const [shouldRender, setShouldRender] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [loadTimeout, setLoadTimeout] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
@@ -23,14 +22,12 @@ export function VisualizerFrame({ html }: VisualizerFrameProps) {
     // Reset loading state when html changes using requestAnimationFrame
     const animationFrame = requestAnimationFrame(() => {
       setIsLoading(true);
-      setLoadTimeout(false);
     });
 
     const iframe = iframeRef.current;
 
     const handleLoad = () => {
       setIsLoading(false);
-      setLoadTimeout(false);
 
       // Hide the loading spinner in the iframe if it exists
       try {
@@ -44,17 +41,12 @@ export function VisualizerFrame({ html }: VisualizerFrameProps) {
         }
       } catch {
         // Cross-origin restrictions, ignore
-        if (process.env.NODE_ENV === 'development') {
-          console.log('Cannot access iframe content');
-        }
+        console.log('Cannot access iframe content');
       }
     };
 
-    // Set timeout to show warning after 5 seconds
+    // Set timeout to stop showing loading after 5 seconds regardless
     const timeout = setTimeout(() => {
-      if (isLoading) {
-        setLoadTimeout(true);
-      }
       setIsLoading(false);
     }, 5000);
 
@@ -83,23 +75,12 @@ export function VisualizerFrame({ html }: VisualizerFrameProps) {
                 </div>
               </div>
             )}
-            {loadTimeout && !isLoading && (
-              <div className="absolute top-4 right-4 bg-amber-50 border border-amber-200 text-amber-800 px-4 py-2 rounded-lg shadow-lg z-20 max-w-md">
-                <div className="flex items-start gap-2">
-                  <span className="text-lg">⚠️</span>
-                  <div>
-                    <p className="font-semibold text-sm">Loading Timeout</p>
-                    <p className="text-xs mt-1">The visualization took longer than expected to load. It may still be processing.</p>
-                  </div>
-                </div>
-              </div>
-            )}
             <iframe
               ref={iframeRef}
               srcDoc={html}
               className="w-full h-[85vh]"
               title="Tableau Lineage Visualization"
-              sandbox="allow-scripts allow-same-origin allow-downloads"
+              sandbox="allow-scripts allow-same-origin allow-downloads allow-forms"
               loading="eager"
             />
           </>

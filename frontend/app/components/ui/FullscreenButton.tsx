@@ -1,12 +1,12 @@
 'use client';
 
-import { useState, useEffect, memo } from 'react';
+import { useState, useEffect } from 'react';
 
 interface FullscreenButtonProps {
   onToggle?: (isFullscreen: boolean) => void;
 }
 
-export const FullscreenButton = memo(function FullscreenButton({ onToggle }: FullscreenButtonProps) {
+export function FullscreenButton({ onToggle }: FullscreenButtonProps) {
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   useEffect(() => {
@@ -55,4 +55,4 @@ export const FullscreenButton = memo(function FullscreenButton({ onToggle }: Ful
       </span>
     </button>
   );
-});
+}

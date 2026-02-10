@@ -1,5 +1,3 @@
-import { memo } from 'react';
-
 interface MetricCardProps {
   label: string;
   value: number;
@@ -7,7 +5,7 @@ interface MetricCardProps {
   color: string;
 }
 
-export const MetricCard = memo(function MetricCard({ label, value, icon, color }: MetricCardProps) {
+export function MetricCard({ label, value, icon, color }: MetricCardProps) {
   return (
     <div className="group relative bg-white/90 backdrop-blur-xl border border-black/5 rounded-2xl p-6
                     shadow-[0_20px_50px_rgba(0,0,0,0.08)] hover:shadow-[0_25px_60px_rgba(14,165,233,0.15)]
@@ -35,4 +33,4 @@ export const MetricCard = memo(function MetricCard({ label, value, icon, color }
       </div>
     </div>
   );
-});
+}
