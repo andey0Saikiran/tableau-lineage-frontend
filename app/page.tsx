@@ -162,7 +162,7 @@ export default function Home() {
             analyzeWorkbook: t.analyzeWorkbook,
             analyzing: t.analyzing,
             tryAgain: t.tryAgain,
-            cancel: t.cancel || 'Cancel',
+            cancel: 'Cancel',
           }}
         />
       </section>
