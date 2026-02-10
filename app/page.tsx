@@ -35,6 +35,7 @@ export default function Home() {
     upload,
     reset,
     retry,
+    cancel,
   } = useFileUpload();
 
   // Show success toast when analysis completes
@@ -103,6 +104,12 @@ export default function Home() {
     retry();
   }, [retry]);
 
+  const handleCancel = useCallback(() => {
+    trackEvent('upload_cancelled');
+    cancel();
+    showToast(t.uploadCancelled || 'Upload cancelled', 'info');
+  }, [cancel, showToast, t.uploadCancelled]);
+
   const handleLanguageChange = useCallback((lang: Language) => {
     const languageNames: Record<Language, string> = {
       en: 'English',
@@ -139,6 +146,7 @@ export default function Home() {
           onFileChange={setFile}
           onUpload={handleUpload}
           onRetry={handleRetry}
+          onCancel={handleCancel}
           loading={loading}
           error={error}
           progress={progress}
@@ -154,6 +162,7 @@ export default function Home() {
             analyzeWorkbook: t.analyzeWorkbook,
             analyzing: t.analyzing,
             tryAgain: t.tryAgain,
+            cancel: t.cancel || 'Cancel',
           }}
         />
       </section>

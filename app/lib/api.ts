@@ -8,7 +8,7 @@ export class UploadError extends Error {
   }
 }
 
-export async function uploadWorkbook(file: File): Promise<UploadResponse> {
+export async function uploadWorkbook(file: File, signal?: AbortSignal): Promise<UploadResponse> {
   const formData = new FormData();
   formData.append('file', file);
 
@@ -18,6 +18,7 @@ export async function uploadWorkbook(file: File): Promise<UploadResponse> {
   const response = await fetch(`${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.UPLOAD}`, {
     method: 'POST',
     body: formData,
+    signal,
   });
   if (process.env.NODE_ENV === 'development') {
     console.timeEnd('Fetch');
