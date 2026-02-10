@@ -54,28 +54,96 @@ export function PrivacyPanel({ isOpen, onClose }: PrivacyPanelProps) {
           <div className="px-6 py-6 overflow-y-auto text-sm text-[#334155] space-y-6 flex-1">
             <div className="bg-gradient-to-r from-[#0ea5e9]/10 to-[#22c55e]/10 border border-[#0ea5e9]/20 rounded-xl p-5">
               <p className="leading-relaxed text-[#475569]">
-                <strong className="text-[#0f172a]">Your data never leaves your environment.</strong> Files are processed in-memory and are not stored, logged, or shared.
+                <strong className="text-[#0f172a]">Privacy First: Your data is never stored, logged, or shared.</strong> All file processing happens in-memory and files are immediately discarded after processing.
               </p>
             </div>
 
             <section className="space-y-3">
-              <h4 className="font-semibold text-[#0f172a] text-base">Security Features</h4>
+              <h4 className="font-semibold text-[#0f172a] text-base">Data Collection & Usage</h4>
               <ul className="space-y-3">
+                <li className="flex items-start gap-2.5">
+                  <span className="text-lg">📤</span>
+                  <div>
+                    <div className="font-semibold text-[#0f172a]">File Processing</div>
+                    <div className="text-[#64748b] text-sm">Uploaded .twbx files are processed entirely in-memory on our servers. Files are parsed to extract metadata, then immediately discarded. No data is written to disk or database.</div>
+                  </div>
+                </li>
                 <li className="flex items-start gap-2.5">
                   <span className="text-lg">🚫</span>
                   <div>
-                    <div className="font-semibold text-[#0f172a]">No Data Storage</div>
-                    <div className="text-[#64748b] text-sm">Files are processed in-memory and immediately deleted</div>
+                    <div className="font-semibold text-[#0f172a]">No Data Retention</div>
+                    <div className="text-[#64748b] text-sm">We do not store, cache, or retain your workbook files, metadata, or visualization outputs at any time.</div>
                   </div>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <span className="text-lg">🔐</span>
                   <div>
-                    <div className="font-semibold text-[#0f172a]">No Logging</div>
-                    <div className="text-[#64748b] text-sm">We don&apos;t log or save your file contents or metadata</div>
+                    <div className="font-semibold text-[#0f172a]">No Content Logging</div>
+                    <div className="text-[#64748b] text-sm">We do not log file contents, field names, calculation formulas, or any workbook-specific information.</div>
                   </div>
                 </li>
               </ul>
+            </section>
+
+            <section className="space-y-3">
+              <h4 className="font-semibold text-[#0f172a] text-base">Security & Encryption</h4>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-2.5">
+                  <span className="text-lg">🔒</span>
+                  <div>
+                    <div className="font-semibold text-[#0f172a]">HTTPS Encryption</div>
+                    <div className="text-[#64748b] text-sm">All data transfers between your browser and our servers are encrypted using industry-standard TLS/SSL protocols.</div>
+                  </div>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="text-lg">⏱️</span>
+                  <div>
+                    <div className="font-semibold text-[#0f172a]">Ephemeral Processing</div>
+                    <div className="text-[#64748b] text-sm">Each upload session is isolated and stateless. Once your browser session ends, all associated data is gone.</div>
+                  </div>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="text-lg">🛡️</span>
+                  <div>
+                    <div className="font-semibold text-[#0f172a]">Sandbox Environment</div>
+                    <div className="text-[#64748b] text-sm">Visualizations render in sandboxed iframes with restricted permissions for additional security.</div>
+                  </div>
+                </li>
+              </ul>
+            </section>
+
+            <section className="space-y-3">
+              <h4 className="font-semibold text-[#0f172a] text-base">Analytics & Tracking</h4>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-2.5">
+                  <span className="text-lg">📊</span>
+                  <div>
+                    <div className="font-semibold text-[#0f172a]">Anonymous Usage Metrics</div>
+                    <div className="text-[#64748b] text-sm">We collect anonymous usage statistics (e.g., page views, button clicks) to improve the tool. No personally identifiable information or file content is tracked.</div>
+                  </div>
+                </li>
+              </ul>
+            </section>
+
+            <section className="space-y-3">
+              <h4 className="font-semibold text-[#0f172a] text-base">Your Rights</h4>
+              <div className="text-[#475569] leading-relaxed">
+                Since we don&apos;t collect or store your data, there&apos;s nothing to access, modify, or delete. Your workbook data exists only during the brief processing period and is immediately discarded.
+              </div>
+            </section>
+
+            <section className="space-y-3">
+              <h4 className="font-semibold text-[#0f172a] text-base">Third-Party Services</h4>
+              <div className="text-[#475569] leading-relaxed">
+                This application is hosted on Vercel (frontend) and Render (backend). These services may collect standard server logs (IP addresses, request timestamps) as part of their infrastructure operations. We do not control their data practices.
+              </div>
+            </section>
+
+            <section className="space-y-3">
+              <h4 className="font-semibold text-[#0f172a] text-base">Contact & Updates</h4>
+              <div className="text-[#475569] leading-relaxed">
+                This privacy policy may be updated from time to time. Continued use of the service constitutes acceptance of any changes. For questions or concerns, please contact us through the repository.
+              </div>
             </section>
           </div>
 

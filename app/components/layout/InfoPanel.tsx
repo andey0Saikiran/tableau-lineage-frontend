@@ -58,25 +58,58 @@ export function InfoPanel({ isOpen, onClose }: InfoPanelProps) {
           <div className="px-6 py-6 overflow-y-auto text-sm text-[#334155] space-y-6 flex-1">
             <InfoSection
               icon="💡"
-              title="What is this?"
-              content="This tool visualizes Tableau workbook metadata and field dependencies directly from your .twbx file. It helps you understand calculations, raw fields, and relationships without opening Tableau Desktop."
+              title="What is Tableau Lineage Visualizer?"
+              content="A web-based tool that analyzes and visualizes the metadata and field dependencies within your Tableau workbooks (.twbx files). It creates an interactive graph showing relationships between data sources, calculated fields, raw fields, parameters, and LOD calculations—helping you understand complex workbook structures without opening Tableau Desktop."
             />
 
             <InfoSection
               icon="⚙️"
               title="How it works"
               items={[
-                "You upload a Tableau workbook (.twbx)",
-                "Metadata is extracted locally",
-                "Dependencies are visualized as an interactive graph",
-                "No manual setup required"
+                "Upload your Tableau workbook (.twbx file)",
+                "The tool extracts and parses XML metadata from the workbook",
+                "Field dependencies and calculations are analyzed",
+                "An interactive network graph is generated showing all relationships",
+                "You can search, filter, cluster, and export the visualization",
+                "All processing happens in-memory—nothing is stored"
               ]}
             />
 
             <InfoSection
               icon="🎯"
-              title="Why this exists"
-              content="Tableau workbooks can become complex quickly. This tool exists to make lineage, dependencies, and calculations visible in seconds."
+              title="Key Features"
+              items={[
+                "Interactive graph with zoom, pan, and search capabilities",
+                "Color-coded nodes by type (data sources, calculated fields, parameters, etc.)",
+                "Physics-based layout for optimal visualization",
+                "Export functionality to save your lineage diagram",
+                "Real-time statistics on workbook complexity",
+                "No installation or Tableau Desktop required"
+              ]}
+            />
+
+            <InfoSection
+              icon="🚀"
+              title="Use Cases"
+              items={[
+                "Understand complex workbook dependencies before making changes",
+                "Document and audit Tableau workbook structures",
+                "Identify calculation chains and potential circular dependencies",
+                "Onboard new team members to existing workbooks",
+                "Plan refactoring and optimization strategies"
+              ]}
+            />
+
+            <InfoSection
+              icon="💻"
+              title="Technical Details"
+              content="Built with Next.js 16, React 19, FastAPI, and vis-network. The application uses a client-server architecture where files are processed server-side and visualizations are rendered client-side. File processing is stateless—files are never persisted to disk or database."
+            />
+
+            <InfoSection
+              icon="📄"
+              title="Browser Compatibility"
+              content="Works best in modern browsers (Chrome, Firefox, Safari, Edge). JavaScript must be enabled for the interactive visualization to function."
             />
           </div>
 
