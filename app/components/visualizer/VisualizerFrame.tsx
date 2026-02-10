@@ -84,13 +84,22 @@ export function VisualizerFrame({ html }: VisualizerFrameProps) {
               </div>
             )}
             {loadTimeout && !isLoading && (
-              <div className="absolute top-4 right-4 bg-amber-50 border border-amber-200 text-amber-800 px-4 py-2 rounded-lg shadow-lg z-20 max-w-md">
+              <div className="absolute top-4 right-4 bg-amber-50 border border-amber-200 text-amber-800 px-4 py-2 rounded-lg shadow-lg z-20 max-w-md animate-fadeIn">
                 <div className="flex items-start gap-2">
                   <span className="text-lg">⚠️</span>
-                  <div>
+                  <div className="flex-1">
                     <p className="font-semibold text-sm">Loading Timeout</p>
                     <p className="text-xs mt-1">The visualization took longer than expected to load. It may still be processing.</p>
                   </div>
+                  <button
+                    onClick={() => setLoadTimeout(false)}
+                    className="ml-2 p-1 hover:bg-amber-100 rounded-full transition-colors flex-shrink-0"
+                    aria-label="Dismiss notification"
+                  >
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
                 </div>
               </div>
             )}
