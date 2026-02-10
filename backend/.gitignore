@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+analytics/analytics.db
+
+# Temporary files
+*.bak
+*.tmp
+*.log
+Tableau_Metadata_Visualizer.html.bak
+Tableau_Metadata_Visualizer_1.html
+1.ipynb
+
+# Uploads directory (don't commit uploaded files)
+uploads/*
+!uploads/.gitkeep
+
+# HTML outputs
+Tableau_Metadata_Visualizer.html
+
+# Environment variables
+.env
+.env.local
