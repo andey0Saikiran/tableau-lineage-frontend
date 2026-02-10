@@ -107,8 +107,8 @@ export default function Home() {
   const handleCancel = useCallback(() => {
     trackEvent('upload_cancelled');
     cancel();
-    showToast(t.uploadCancelled || 'Upload cancelled', 'info');
-  }, [cancel, showToast, t.uploadCancelled]);
+    showToast('Upload cancelled', 'info');
+  }, [cancel, showToast]);
 
   const handleLanguageChange = useCallback((lang: Language) => {
     const languageNames: Record<Language, string> = {
